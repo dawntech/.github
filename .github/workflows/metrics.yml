@@ -30,8 +30,8 @@ jobs:
             html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
           plugin_languages_indepth: yes
           plugin_languages_details: lines, bytes-size
-          plugin_languages_limit: 4
-          plugin_languages_analysis_timeout: 15
+          plugin_languages_limit: 5
+          plugin_languages_analysis_timeout: 30
       - name: Dawntech YouTube RSS
         uses: lowlighter/metrics@latest
         with:
@@ -41,42 +41,16 @@ jobs:
           plugin_rss: yes
           plugin_rss_source: https://www.youtube.com/feeds/videos.xml?channel_id=UCX_dAlOJYox73_CPm-S7RSw
           plugin_rss_limit: 4
-      - name: Repositories traffic
-        uses: lowlighter/metrics@latest
-        with:
-          filename: profile/metrics.plugin.traffic.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: repositories
-          user: dawntech
-          plugin_traffic: yes
-      - name: Compact display in base plugin
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.lines.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: repositories
-          user: dawntech
-          plugin_lines: yes
-          plugin_lines_delay: 30
       - name: Mildly interesting facts
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.habits.facts.svg
+          filename: profile/metrics.plugin.habits.facts.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           user: dawntech
           plugin_habits: yes
           plugin_habits_facts: yes
           plugin_habits_charts: no
-          config_timezone: America/Sao_Paulo
-      - name: Recent activity charts
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.habits.charts.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
-          user: dawntech
-          plugin_habits: yes
-          plugin_habits_facts: no
-          plugin_habits_charts: yes
+          plugin_habits_days: 30
+          plugin_habits_from: 1000
           config_timezone: America/Sao_Paulo

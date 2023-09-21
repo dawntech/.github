@@ -37,6 +37,7 @@ jobs:
         with:
           filename: profile/metrics.plugin.rss.svg
           base: ""
+          token: NOT_NEEDED
           plugin_rss: yes
           plugin_rss_source: https://www.youtube.com/feeds/videos.xml?channel_id=UCX_dAlOJYox73_CPm-S7RSw
           plugin_rss_limit: 4
